@@ -45,8 +45,8 @@ This web app consists of 4 main components: ChatBot, Mood Tracker, Quick Tips, a
 
 ## Appendix
 
-1. Figma[https://www.figma.com]
+1. [Figma](https://www.figma.com)
 
 ## References
 
-1. Colleges Where Students Study the Most[https://www.cnbc.com/2024/09/05/colleges-where-students-study-the-most-princeton-review.html]
+1. [Colleges Where Students Study the Most](https://www.cnbc.com/2024/09/05/colleges-where-students-study-the-most-princeton-review.html)
