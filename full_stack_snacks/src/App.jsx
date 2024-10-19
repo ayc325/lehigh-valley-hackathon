@@ -5,6 +5,7 @@ import ChatBot from './components/ChatBot'
 import MoodTracker from './components/MoodTracker'
 import QuickTips from './components/QuickTips'
 import Resources from './components/Resources'
+import Calendar1 from './components/Calendar1'
 import './App.css'
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
     </div>
 
     <div className = "moodInsights">
+      <Calendar1 />
       <p>mood insights goes here</p>
     </div>
 
