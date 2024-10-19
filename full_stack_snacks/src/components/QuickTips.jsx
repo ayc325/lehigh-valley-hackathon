@@ -39,7 +39,7 @@ const QuickTips = () =>{
             </p>
             
             <h3>Apps</h3>
-            <p>There are collection of digital interfaces made to assist student with studying, staying organized, and connecting with others. 
+            <p>There are collections of digital interfaces made to assist students with studying, staying organized, and connecting with others. 
                 Here are a variety of apps to enhance your college experience and support mental wellness.
             </p>
             <p>
