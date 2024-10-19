@@ -12,27 +12,19 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    // <div>
-    //   <ChatBot />
-    //   <MoodTracker />
-    //   <QuickTips />
-    //   <Resources />
-    // </div>
   <div className = "grid-container">
     <div className = "upperleft"></div>
     <div className = "Welcome1">
-      <h1>Mindful Hawks</h1>
+      <h1>Mindful Hawks</h1></div>
     <div className = "upperright"></div>
 
 
     { <div className = "nav1">
         <nav>
-      <ul className = "navBar">
-        <li><a href = "#">ChatBot</a></li>
-        <li><a href = "#">MoodTracker</a></li>
-        <li><a href = "#">QuickTips</a></li>
-        <li><a href = "#">Resources</a></li>
-      </ul>
+        <a href = "#">ChatBot</a>
+        <a href = "#">MoodTracker</a>
+        <a href = "#">QuickTips</a>
+        <a href = "#">Resources</a>
     </nav>
 
     </div> }
@@ -61,7 +53,6 @@ function App() {
     </div>
   </div>
 
-   </div>
   )
 }
 
