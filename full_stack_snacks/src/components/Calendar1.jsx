@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Calendar from 'react-calendar'; // from react library
 import 'react-calendar/dist/Calendar.css';
+import './Calendar1.css'
 import { format } from "date-fns"
 
 const Calendar1 = ({selectedDate, nav}) => {
@@ -36,8 +37,9 @@ const Calendar1 = ({selectedDate, nav}) => {
                 value={date}
                 onActiveStartDateChange={onActiveStartDateChange} // Listen to view changes
             />
+            <br />
             <button className="monthly-insight-button" onClick={handleMonthlyInsight}>
-                Monthly Insight
+                Mood Insights
             </button>
         </div>
     )
