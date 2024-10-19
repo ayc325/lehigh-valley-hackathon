@@ -1,11 +1,11 @@
-import React from "react"
-const ChatBot = () =>{
+import React, { useState } from 'react';
+
+const ChatBot = () => {
     return(
-        <div className = "chat">
+        <div>
             <h2>ChatBot</h2>
-            
         </div>
     )
-}
+};
 
 export default ChatBot;
