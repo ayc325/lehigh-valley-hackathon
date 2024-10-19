@@ -32,6 +32,11 @@ const QuickTips = () =>{
                 <br />
                 For more information: <a href = "https://studentaffairs.lehigh.edu/lehigh-after-dark-lad">Lehigh After Dark | Student Affairs</a>
             </p>
+            <p>
+                <b>Pet Therapy</b>
+                : During finals week, Lehigh often hosts pet therapy events where students hang out with therapy dogs and relieve stress. 
+                Keep an eye out in your emails to get notified when and where these events are hosted! 
+            </p>
             
             <h3>Apps</h3>
             <p>There are collection of digital interfaces made to assist student with studying, staying organized, and connecting with others. 
