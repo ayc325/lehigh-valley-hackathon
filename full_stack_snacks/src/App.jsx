@@ -22,6 +22,7 @@ function App() {
     <div className = "upperleft"></div>
     <div className = "Welcome1">
       <h1>Mindful Hawks</h1>
+    </div>
     <div className = "upperright"></div>
 
 
@@ -61,7 +62,7 @@ function App() {
     </div>
   </div>
 
-   </div>
+   
   )
 }
 
