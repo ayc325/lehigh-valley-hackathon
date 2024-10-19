@@ -13,18 +13,18 @@ This web app consists of 4 main components: ChatBot, Mood Tracker, Quick Tips, a
 
 ### Selected Track
 
-[] Academic Career Success
-[] Course Planning
-[X] Health and Wellness
-[] Campus and Community Resources
-[] Financial and Resource Management
-[] Diversity, Social, and Extracurricular Engagement
+* [ ] Academic Career Success
+* [ ] Course Planning
+* [X] Health and Wellness
+* [ ] Campus and Community Resources
+* [ ] Financial and Resource Management
+* [ ] Diversity, Social, and Extracurricular Engagement
 
 ### What Special Features did we include?
 
-[] AI
-[] AWS
-[] Stunning Visuals
+* [ ] AI
+* [ ] AWS
+* [ ] Stunning Visuals
 
 ### Tech Stack
 
