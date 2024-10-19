@@ -5,6 +5,7 @@
   text-align: center;
   color:rgb(168, 123, 72); 
   font: italic; 
+  
 }
 
 body{
@@ -29,10 +30,14 @@ body{
 .Welcome1 {
   grid-area: Welcome; 
   border: solid black;
-  margin: 40px; 
-  padding: 20px;
+  border-radius: 25px;
+  margin: 30px; 
+  padding: 0px;
   background-color: #faebeb; 
-  font-style: italic; 
+  position:absolute; 
+  top:0; 
+  align-items:center; 
+  
 }
 
 .upperleft{
@@ -45,20 +50,28 @@ body{
 
 .navBar{
   grid-area: nav;
-  box-sizing: border-box; 
-  margin:10px;
-  padding: 15px;
+  box-sizing:border-box; 
+  margin:auto;
+  padding: 20px 20px;
+  width:100%; 
   background-color:#DED0C2;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-weight:500;
-  font-size:16px; 
+
+
   color:rgb(239, 238, 238);
   text-decoration: none; 
   display: flex; 
   justify-content: space-between;
   align-items:center; 
   list-style: none; 
+  gap:50px;
 
+}
+
+.navBar a{
+  color: black; 
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight:500;
+  font-size:16px; 
 }
 
 .playlist1{
