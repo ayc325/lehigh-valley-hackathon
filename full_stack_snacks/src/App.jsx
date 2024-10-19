@@ -35,6 +35,8 @@ function App() {
       <h2>Playlist goes here</h2>
     </div>
 
+    
+
     <div className = "funfact1">
       <h2>fun fact goes here</h2>
     </div>
