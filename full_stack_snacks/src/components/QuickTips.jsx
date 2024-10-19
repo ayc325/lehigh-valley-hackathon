@@ -55,19 +55,20 @@ const QuickTips = () =>{
                 <b>Pomodoro Timer</b>
                 : The Pomodoro Timer app encourages undistracted studying using the Pomodoro Technique -- 25 mintues of studying separated by 5 minutes of break.
                 <br />
-                <a href = "https://www.bing.com/ck/a?!&&p=6c6bf2a3e1375cf93a8a242ecfa45cd246b626329cdac7fbe5aadc9ede5ce776JmltdHM9MTcyOTI5NjAwMA&ptn=3&ver=2&hsh=4&fclid=0942a05a-4f87-6ce9-04ec-b0c44e376d62&psq=pomodoro+timer+app&u=a1aHR0cHM6Ly9wbGF5Lmdvb2dsZS5jb20vc3RvcmUvYXBwcy9kZXRhaWxzP2lkPWNvbS5wb21vZHJvbmUuYXBwJmhsPWVuLVVT&ntb=1" Download Pomodoro Timer on Google Play></a>
+                <a href = "https://play.google.com/store/apps/details?id=com.pomodrone.app&hl=en-US&pli=1">Download Pomodoro Timer on Google Play</a>
             </p>
             <p>
                 <b>Forest</b>
                 : The Forest app rewards your focus by letting you grow a virtual tree! The longer you stay off your phone, 
                 the bigger your tree grows. Grow a collection of unique tree species and you improve your study habits.
-                
                 <br />
+                <a href = "https://www.forestapp.cc/">Download Forest</a>
             </p>
             <p>
                 <b>Stompers</b>
-
+                : Challnege your friends to a step-off! See who can take the most steps om campus and compete for the top spot.
                 <br />
+                <a href = "https://apps.apple.com/us/app/stompers-steps-with-friends/id6477849675">Download Stompers on the App Store</a>
             </p>
         </div>
     )
