@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 .env
-package-lock.json
+full_stack_snacks/package-lock.json
