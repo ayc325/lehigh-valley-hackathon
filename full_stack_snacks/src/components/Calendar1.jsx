@@ -1,12 +1,44 @@
-import React from 'react';
-import Calendar from 'react-calendar';
+import React, {useState} from 'react';
+import Calendar from 'react-calendar'; // from react library
 import 'react-calendar/dist/Calendar.css';
 import { format } from "date-fns"
 
-const Calendar1 = () => {
-    return  (
-        <div>
-            <h3>What Day is it?</h3>
+const Calendar1 = ({selectedDate, nav}) => {
+    const [date, setDate] = useState(new Date()); 
+    const [viewDate, setViewDate] = useState(new Date());
+
+    //function called when a new date is selected
+    const onChange = (date) => {
+        setDate(date);
+        selectedDate(date);
+        nav(`/track/${format(date, 'yyyy-MM-dd')}`); 
+        // Nav to mood tracker with the selected date
+    };
+   
+    const onActiveStartDateChange = ({ activeStartDate }) => {
+        setViewDate(activeStartDate); 
+    };
+
+    const getCurrentMonth = () => {
+        return format(viewDate, 'yyyy-MM');
+    };
+
+    const handleMonthlyInsight = () => {
+        const month = getCurrentMonth();
+        navigate(`/insight/${month}`);
+    };
+
+    return (
+        <div className="calendar-container">
+            <h2>Select a Date</h2>
+            <Calendar
+                onChange={onChange}
+                value={date}
+                onActiveStartDateChange={onActiveStartDateChange} // Listen to view changes
+            />
+            <button className="monthly-insight-button" onClick={handleMonthlyInsight}>
+                Monthly Insight
+            </button>
         </div>
     )
 }

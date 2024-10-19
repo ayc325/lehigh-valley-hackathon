@@ -1,7 +1,7 @@
 import React from "react"
 import notionpic from "../assets/notionpic.jpg"
 const QuickTips = () =>{
-    return(
+    return (
         <div className = "tips">
             <h2>Quick Tips</h2>
             <p>
