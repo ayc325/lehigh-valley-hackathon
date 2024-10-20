@@ -5,133 +5,65 @@
   text-align: center;
   align-items: center;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
 
-  }
- 
- 
- body{
-  background-color:rgb(255, 255, 255);
- }
- 
- 
- .grid-container {
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.grid-container {
   display: grid;
-  grid-template-areas: 'upperLeft Welcome Welcome Welcome Welcome upperRight'
-                      'nav nav nav nav nav nav'
-                      'playlist body body body body moodCal'
-                      'playlist body body body body moodCal'
-                      'fact body body body body moodCal'
-                      'fact body body body body moodCal'
-                      'footer footer footer footer footer footer';
+  grid-template-areas: 
+    'Welcome Welcome Welcome Welcome Welcome Welcome'
+    'nav nav nav nav nav nav'
+    'body body body body body body'
+    'footer footer footer footer footer footer';
   grid-gap: 20px;
   padding: 20px;
- 
- 
- }
- 
- 
- .Welcome1 {
+}
+
+.Welcome1 {
   grid-area: Welcome;
   color: rgb(121, 91, 59);
-  border: solid rgb(121, 91, 59);
+  box-shadow: 0 4px 6px rgba(230, 77, 77, 0.6);
   border-radius: 25px;
-  margin: 30px;
-  text-align: center;
-  padding: 20px;
-  background-color: #faebeb; 
-  top:0;
-  align-items:center;
-  width: fit-content;
- }
+  margin: 10px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #faebeb;
+}
 
- 
- 
- .upperleft{
-  grid-area: upperLeft;
- }
- 
- 
- .upperright{
-  grid-area: upperRight;
- }
- 
- 
- .nav1{
+.nav1 {
   grid-area: nav;
-  background-color:#DED0C2;
-  padding-left: 10%;
-  padding-right: 10%;
+  background-color: #DED0C2;
+  padding: 20px;
   border-radius: 20px;
-  margin: 20px;
   display: flex;
-  justify-content: space-between; 
-  padding-top: 20px;
-  padding-bottom: 20px;
- }
- 
- 
- .nav1 a{
+  justify-content: space-between;
+}
+
+.nav1 a {
   color: rgb(115, 81, 49);
-  font-weight:bold;
-  font-size:16px;
- }
- 
- 
- .playlist1{
-  grid-area: playlist;
- }
- 
- 
-       .funfact1 {
-            background-color: #C2E1D4;
-            border-radius: 25px;
-            padding: 20px;
-            transition: opacity 0.3s ease;
-            position: relative; /* Allow positioning of hidden text */
-            z-index: 1; /* Ensure it's above the revealed text */
-        }
+  font-weight: bold;
+  font-size: 16px;
+}
 
-        .revealedFact {
-            opacity: 0; /* Hidden by default */
-            transition: opacity 0.3s ease;
-            position: absolute; /* Position it over funfact1 */
-            top: 0; /* Align with funfact1 */
-            left: 0; /* Align with funfact1 */
-            width: 100%; /* Full width of funfact1 */
-            padding: 20px; /* Same padding for alignment */
-            background-color: #C2E1D4; /* Match background */
-            border-radius: 25px; /* Match border radius */
-            z-index: 0; /* Behind funfact1 */
-        }
+.nav1 a:hover {
+  text-decoration: underline;
+  color: #4A3A2E; /* Slightly darker color on hover */
+}
 
-        .funfact1:hover {
-            opacity: 0; /* Fade out funfact1 on hover */
-        }
-
-        .funfact1:hover + .revealedFact {
-            opacity: 1; /* Fade in revealedFact on hover */
-        }
- 
-
- 
- 
- .body1{
+.body1 {
   grid-area: body;
   background-color: #E2EDF4;
   border-radius: 25px;
-  color: black; 
- }
- 
- 
- .moodInsights{
-  grid-area: moodCal;
-  background-color: #F7CC97; 
-  border-radius:25px;
- }
- 
- 
- .footer1{
+  color: rgb(21, 2, 8);
+  padding: 20px;
+}
+
+.footer1 {
   grid-area: footer;
   border: solid black;
- }
- 
+  padding: 10px; /* Added padding for better appearance */
+}
