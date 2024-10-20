@@ -23,6 +23,8 @@ const Resources = () =>{
                 <a href = "https://math.cas.lehigh.edu/">Study/Help Center</a>: <a href = "tel: 610-758-3730">610-758-3730</a>
                 <br />
                 <a href = "https://studentaffairs.lehigh.edu/content/care-team">Student Concerns Reporting Form</a>: <a href = "tel: 610-758-4156">610-758-4156</a>
+                <br />
+                National Suicide Prevention HotLine: <a href = "tel: 988">988</a>
             </p>
         </div>
     )
