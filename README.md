@@ -73,4 +73,5 @@ This web app consists of 4 main components: ChatBot, Mood Tracker, Quick Tips, a
 4. AWS Workshop for Bedrock
 5. [Anthropic Claude Messages API](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html#model-parameters-anthropic-claude-messages-request-response)
 6. [Error when Bedrock invoke Lambda](https://repost.aws/questions/QUXk7QWdzGTh-c5MIWch9NNQ/error-when-bedrock-agent-invoke-lambda)
-7. 
+7. [CSE Undergraduate Resources Page](https://engineering.lehigh.edu/cse/academics/undergraduate/resources)
+8. [bytesandbalance/Mood-Tracker](https://github.com/bytesandbalance/Mood-Tracker/tree/main)
