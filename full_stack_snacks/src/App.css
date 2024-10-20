@@ -63,8 +63,6 @@
   padding-right: 10%;
   border-radius: 20px;
   margin: 20px;
-
-  color:rgb(239, 238, 238);
   display: flex;
   justify-content: space-between; 
   padding-top: 20px;
@@ -82,10 +80,11 @@
  
  .playlist1{
   grid-area: playlist;
-  background-color: #C2E1D4;
+  /* background-color: #C2E1D4; */
+  color: black; 
+
   border-radius: 25px;
-  padding-top: 40px;
-  padding-bottom: 30px;
+  margin-top: -60px;
  }
  
  
@@ -107,7 +106,7 @@
  
  .moodInsights{
   grid-area: moodCal;
-  background-color: #F7CC97;
+  background-color: #F7CC97; 
   border-radius:25px;
  }
  

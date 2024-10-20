@@ -31,9 +31,20 @@ function App() {
 
 
 
-    <div className = "playlist1">
-      <h2>Playlist goes here</h2>
-    </div>
+    <div className="playlist1">
+  <h2>Relax with some music</h2>
+  <iframe
+    style={{ borderRadius: '12px' }} 
+    src="https://open.spotify.com/embed/playlist/6dQz1ZnwnluFiUhBOMrJQC?utm_source=generator" 
+    width="100%" 
+    height="352" 
+    frameBorder="0" 
+    allowFullScreen 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy">
+  </iframe>
+</div>
+
 
     
 
@@ -47,12 +58,13 @@ function App() {
 
     <div className = "moodInsights">
       <Calendar1 />
-      <p>mood insights goes here</p>
     </div>
 
     <div className = "footer1">
       <p>footer goes here</p>
     </div>
+
+    
   </div>
 
   )
