@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import './ChatBot.css'; // Import the CSS file for styling
 
-function ChatBot () {
+const ChatBot = () => {
     const [messages, setMessages] = useState([]);
-    const [response, setResponse] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -25,24 +25,28 @@ function ChatBot () {
                 prompt: inputValue,
             };
 
-            // Make the API POST request using fetch, without Authorization header
+            // Make the API POST request using fetch
             const res = await fetch('https://6vtiprdy9b.execute-api.us-west-2.amazonaws.com/full_stack_snacks_api_stage/ask', {
                 method: 'POST',
-                // headers: {
-                //     'Access-Control-Allow-Origin': 'origin',
-                // },
                 body: JSON.stringify(requestBody),
+                headers: {
+                    'Content-Type': 'application/json', // Set content type to JSON
+                },
             });
 
             if (!res.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error(`HTTP error! Status: ${res.status}`); // Use res instead of response
             }
 
             const data = await res.json();
-            //const response = JSON.parse(data.response);
-            console.log(data);
+            console.log(data.response);
 
-            setResponse(data);
+            // Add API response to messages
+            const assistantMessage = { role: 'assistant', content: data.response };
+            // Use a timeout to simulate a delay in response (optional)
+            setTimeout(() => {
+                setMessages((prevMessages) => [...prevMessages, assistantMessage]); // Append the assistant's message
+            }, 500); // Delay for half a second
 
         } catch (error) {
             console.error('Error fetching completion:', error);
@@ -53,11 +57,11 @@ function ChatBot () {
     };
 
     return (
-        <div>
+        <div className="chatbot-container">
             <h1>ChatBot</h1>
             <div className="chat-window">
                 {messages.map((message, index) => (
-                    <div key={index} className={message.role}>
+                    <div key={index} className={`chat-bubble ${message.role}`}>
                         <strong>{message.role === 'user' ? 'You' : 'Assistant'}:</strong> {message.content}
                     </div>
                 ))}
