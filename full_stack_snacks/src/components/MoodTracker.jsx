@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { PieChart, Pie, Tooltip, Cell } from 'recharts';
-import './MoodTracker.css'; // Assuming the CSS is for styling
-
-const COLORS = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#FF4500', '#32CD32', '#FF9F9F'];
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import './MoodTracker.css';
+import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
 const MoodTracker = () => {
-    // States for mood tracking and random phrase generation
     const [mood, setMood] = useState('');
+    const [message, setMessage] = useState('');
     const [randomPhrase, setRandomPhrase] = useState('');
-
-    // State for emotion counts
-    const [happyC, setHappyC] = useState(0);
-    const [sadC, setSadC] = useState(0);
-    const [angryC, setAngryC] = useState(0);
-    const [calmC, setCalmC] = useState(0);
-    const [motivatedC, setMotivatedC] = useState(0);
-    const [anxiousC, setAnxiousC] = useState(0);
-    const [sickC, setSickC] = useState(0);
-    const [stressedC, setStressedC] = useState(0);
-    const [energeticC, setEnergeticC] = useState(0);
-
-    const moodPhrases = {
+    
+    const [moodCounts, setMoodCounts] = useState({
+        Happy: 0,
+        Sad: 0,
+        Calm: 0,
+        Angry: 0,
+        Motivated: 0,
+        Anxious: 0,
+        Confident: 0,
+        Embarrassed: 0,
+        Energetic: 0,
+        Sick: 0,
+        Stressed: 0
+    });
+    const totalMoods = Object.values(moodCounts).reduce((acc, count) => acc + count, 0);
+    const COLORS = ['#e3b0ff', '#00C49F', '#FFBB28', '#FF8042', '#FF6347', '#40E0D0', '#DAA520', '#8A2BE2', '#FF1493', '#ADFF2F', '#DC143C'];
+    
+    const moodPhrases  = {
         Happy: [
           "That's awesome! Keep the positive energy going—consider heading to Taylor Gym to keep those good vibes flowing.",
           "Happiness looks great on you! If you're up for it, why not stop by the UC lawn for some outdoor relaxation?",
@@ -66,113 +71,185 @@ const MoodTracker = () => {
           "Channel that energy into something awesome! Check out group fitness classes at Taylor Gym or the Fitness Center in Welch.",
           "You’re unstoppable right now! Go seize the day with some physical activities on the Asa Packer Campus or join an intramural sport.",
         ],
+        Confident: [
+          "It's a great day to be bold! Why not take that confident energy and present your ideas at the Baker Institute for Innovation?",
+          "Your confidence can inspire others. Take the stage and share your ideas, whether in a club or during your next presentation at Lehigh.",
+          "You're unstoppable today! Consider mentoring a peer or getting involved in Lehigh's leadership development programs at the Office of Student Engagement.",
+        ],
+        Embarrassed: [
+          "It’s totally okay to feel embarrassed—remember, everyone in your class has been there! Swing by the Linderman Library for some quiet time to regroup.",
+          "Don’t let a small moment get you down. Next time, try some mindfulness exercises at Taylor Gym to shake off the embarrassment.",
+          "You’re unstoppable right now! Go seize the day with some physical activities on the Asa Packer Campus or join an intramural sport.",
+        ],
       };
+  
 
-    const data = [
-        { name: 'Happy', value: happyC },
-        { name: 'Sad', value: sadC },
-        { name: 'Angry', value: angryC },
-        { name: 'Calm', value: calmC },
-        { name: 'Motivated', value: motivatedC },
-        { name: 'Anxious', value: anxiousC },
-        { name: 'Sick', value: sickC },
-        { name: 'Stressed', value: stressedC },
-        { name: 'Energetic', value: energeticC }
-    ];
+    const data = Object.keys(moodCounts).map((mood, index) => ({
+        name: mood,
+        value: moodCounts[mood],
+        percentage: totalMoods > 0 ? ((moodCounts[mood] / totalMoods) * 100).toFixed(1) : 0,
+        fill: COLORS[index % COLORS.length],
+    }));
 
     const getRandomPhrase = (selectedMood) => {
         const phrases = moodPhrases[selectedMood] || [];
         return phrases[Math.floor(Math.random() * phrases.length)];
-    };
+      };
 
     const handleMoodChange = (selectedMood) => {
-        setMood(selectedMood);
-        setRandomPhrase(getRandomPhrase(selectedMood));
+        setMood((prevMood) => {
+            if (prevMood === selectedMood) {
+                return '';  // Deselect if the same mood is clicked again
+            } else {
+                setRandomPhrase(getRandomPhrase(selectedMood));
+                setMessage(`You selected ${selectedMood}`);
+                incrementMoodCount(selectedMood);  // Update mood count
+                return selectedMood;
+            }
+        });
+    };
 
-        // Update emotion counts
-        switch (selectedMood) {
-            case 'Happy':
-                setHappyC(happyC + 1);
-                break;
-            case 'Sad':
-                setSadC(sadC + 1);
-                break;
-            case 'Angry':
-                setAngryC(angryC + 1);
-                break;
-            case 'Calm':
-                setCalmC(calmC + 1);
-                break;
-            case 'Motivated':
-                setMotivatedC(motivatedC + 1);
-                break;
-            case 'Anxious':
-                setAnxiousC(anxiousC + 1);
-                break;
-            case 'Sick':
-                setSickC(sickC + 1);
-                break;
-            case 'Stressed':
-                setStressedC(stressedC + 1);
-                break;
-            case 'Energetic':
-                setEnergeticC(energeticC + 1);
-                break;
-            default:
-                break;
-        }
+    const incrementMoodCount = (selectedMood) => {
+        setMoodCounts((prevCounts) => ({
+            ...prevCounts,
+            [selectedMood]: prevCounts[selectedMood] + 1
+        }));
     };
 
     useEffect(() => {
-        document.body.classList.remove('sad-theme', 'happy-theme', 'stressed-theme', 'anxious-theme');
-        if (mood === 'Sad') document.body.classList.add('sad-theme');
-        if (mood === 'Happy') document.body.classList.add('happy-theme');
-        if (mood === 'Stressed') document.body.classList.add('stressed-theme');
-        if (mood === 'Anxious') document.body.classList.add('anxious-theme');
+        // Remove all existing mood-related classes from body
+        document.body.classList.remove(
+            'sad-theme', 'happy-theme', 'angry-theme', 'stressed-theme',
+            'anxious-theme', 'motivated-theme', 'calm-theme', 'embarrassed-theme',
+            'confident-theme', 'energetic-theme', 'sick-theme'
+        );
+
+        // Add the appropriate class based on the selected mood
+        if (mood) {
+            document.body.classList.add(`${mood.toLowerCase()}-theme`);
+        }
+    }, [mood]);
+    
+    const createBubble = () => {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        document.body.appendChild(bubble);
+    
+        // Set bubble position and animate
+        bubble.style.left = Math.random() * window.innerWidth + "px";
+        bubble.style.animationDuration = Math.random() * 3 + 2 + "s";
+    
+        // Remove bubble after animation completes
+        bubble.addEventListener("animationend", () => {
+            bubble.remove();
+        });
+    };
+    
+    // Create bubbles on mood change
+    useEffect(() => {
+        const bubbleInterval = setInterval(() => {
+            createBubble();
+        }, 1000); // Adjust for how often you want new bubbles
+    
+        return () => clearInterval(bubbleInterval);
     }, [mood]);
 
-    return (
-        <div className="mood">
-            <h2>How Are You Feeling Today?</h2>
-            <div className="mood-options">
-                <button className="mood-button" onClick={() => handleMoodChange('Happy')}>😊 Happy</button>
-                <button className="mood-button" onClick={() => handleMoodChange('Sad')}>😔 Sad</button>
-                <button className="mood-button" onClick={() => handleMoodChange('Angry')}>😡 Angry</button>
-                <button className="mood-button" onClick={() => handleMoodChange('Calm')}>🙂 Calm</button>
-                <button className="mood-button" onClick={() => handleMoodChange('Motivated')}>💪 Motivated</button>
-                <button className="mood-button" onClick={() => handleMoodChange('Anxious')}>😰 Anxious</button>
-                <button className="mood-button" onClick={() => handleMoodChange('Sick')}>🤒 Sick</button>
-                <button className="mood-button" onClick={() => handleMoodChange('Stressed')}>😣 Stressed</button>
-                <button className="mood-button" onClick={() => handleMoodChange('Energetic')}>😁 Energetic</button>
-            </div>
+    return(
+            <div className="mood">
+                <h2>How Are you Feeling today?</h2>
+                <div className="mood-options">
+                    <button
+                        className={`mood-button ${mood === 'Happy' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Happy')}
+                    >
+                        😊 Happy
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Sad' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Sad')}
+                    >
+                        😔 Sad
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Calm' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Calm')}
+                    >
+                        🙂 Calm
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Angry' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Angry')}
+                    >
+                        😡 Angry
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Motivated' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Motivated')}
+                    >
+                        💪 Motivated
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Anxious' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Anxious')}
+                    >
+                        😰 Anxious
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Confident' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Confident')}
+                    >
+                        😎 Confident
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Embarrassed' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Embarrassed')}
+                    >
+                        😳 Embarrassed
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Energetic' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Energetic')}
+                    >
+                        😁 Energetic
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Sick' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Sick')}
+                    >
+                        😣 Sick
+                    </button>
+                </div>
             {mood && <p className="random-phrase">{randomPhrase}</p>}
 
-            {/* Display ChatBot prompt based on mood */}
-            {['Sad', 'Angry', 'Stressed', 'Anxious'].includes(mood) && (
-                <p className="chatbot-prompt">
-                    Try chatting with our <a href="#">ChatBot</a>.
-                </p>
-            )}
-
+            {mood === 'Sad' ||mood === 'Angry' || mood === 'Stressed'|| mood === 'Sick' || mood === 'Anxious' ? (
+                <div> <p className="chatbot-prompt">
+                Try chatting with our <a href="#">ChatBot</a>.
+            </p>
+            
+            </div>
+            ):null}
             {/* Pie Chart for visualizing mood counts */}
-            <PieChart width={400} height={400}>
-                <Pie
-                    data={data}
-                    cx={200}
-                    cy={200}
-                    outerRadius={150}
-                    fill="#8884d8"
-                    dataKey="value"
-                    label
-                >
-                    {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                </Pie>
-                <Tooltip />
-            </PieChart>
+            <div className="pie-chart-container">
+                <div className="pie-chart-box">
+                    <PieChart width={400} height={400}>
+                        <Pie
+                            data={data}
+                            cx="50%" cy="50%" 
+                            outerRadius={150}
+                            fill="#8884d8"
+                            dataKey="value"
+                            isAnimationActive={true} // Ensure smooth transitions
+                        >
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={entry.fill} />
+                            ))}
+                        </Pie>
+                        <Tooltip formatter={(value, name, props) => [`${value} (${props.payload.percentage}%)`, name]} />
+                    </PieChart>
+                </div>
+            </div>
         </div>
     );
-};
+} //stuff
 
 export default MoodTracker;
