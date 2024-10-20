@@ -32,15 +32,6 @@ function App() {
           <Route path="*" element={<h2>404 - Page Not Found</h2>} />
         </Routes>
 
-        <Router>
-            <Switch>
-                <Route path="/">
-                    <App/>
-                </Route>
-                <Route path= "/MoodTracker"></Route>
-                    <MoodTracker/>
-            </Switch>
-        </Router>
 
         <div className="playlist1">
           <iframe
