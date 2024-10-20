@@ -16,46 +16,40 @@
  
  .grid-container {
   display: grid;
-  grid-template-areas: 'upperLeft Welcome Welcome Welcome Welcome upperRight'
+  grid-template-areas:'Welcome Welcome Welcome Welcome Welcome Welcome'
                       'nav nav nav nav nav nav'
                       'playlist body body body body moodCal'
                       'playlist body body body body moodCal'
                       'fact body body body body moodCal'
                       'fact body body body body moodCal'
                       'footer footer footer footer footer footer';
+  /* grid-template-columns: ; */
+  /* grid-template-rows: auto; */
   grid-gap: 20px;
   padding: 20px;
- 
- 
  }
  
  
  .Welcome1 {
   grid-area: Welcome;
   color: rgb(121, 91, 59);
-  border: solid rgb(121, 91, 59);
+  box-shadow: 0 4px 6px rgba(230, 77, 77, 0.6);
   border-radius: 25px;
-  margin: 30px;
-  text-align: center;
-  padding: 20px;
-  background-color: #faebeb; 
-  top:0;
-  align-items:center;
-  width: fit-content;
- }
+  margin: 10px;       
+  width: 100%;                      
+  padding-top: 10px;
+  padding-bottom: 10px;               
+  background-color: #faebeb;         
+}
 
- 
- 
- .upperleft{
-  grid-area: upperLeft;
- }
- 
- 
- .upperright{
-  grid-area: upperRight;
- }
- 
- 
+h1{
+  text-align: center !important;
+  /* padding-left: 25%;
+  padding-right: 25%; */
+  /* margin-left: 20%;
+  margin-right: 20%; */
+}
+
  .nav1{
   grid-area: nav;
   background-color:#DED0C2;
@@ -79,6 +73,9 @@
  
  .playlist1{
   grid-area: playlist;
+  background-color:#027325;
+  box-shadow: 0 4px 6px #027325;
+  border-radius: 20px;
  }
  
  
@@ -120,6 +117,7 @@
   background-color: #E2EDF4;
   border-radius: 25px;
   color: black; 
+  width:450px; 
  }
  
  

@@ -10,12 +10,11 @@ function App() {
   return (
     <Router>  
       <div className="grid-container">
-        <div className="upperleft"></div>
+        
         <div className="Welcome1">
           <h1>Mindful Hawks</h1>
         </div>
-        <div className="upperright"></div>
-
+        
         <div className="nav1">
           <Link to="/chatbot">Chat Bot</Link>
           <Link to="/moodtracker">Mood Tracker</Link>
