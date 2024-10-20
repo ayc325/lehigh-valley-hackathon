@@ -1,0 +1,37 @@
+.chatbot-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: black;
+}
+
+.chat-window {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.chat-bubble {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 80%;
+}
+
+.user {
+    background-color: #d1e7dd; /* Light green for user */
+    align-self: flex-end; /* Align user messages to the right */
+}
+
+.assistant {
+    background-color: #f8d7da; /* Light red for assistant */
+    align-self: flex-start; /* Align assistant messages to the left */
+}
