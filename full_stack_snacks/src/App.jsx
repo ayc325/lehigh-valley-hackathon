@@ -16,7 +16,8 @@ function App() {
   <div className = "grid-container">
     <div className = "upperleft"></div>
     <div className = "Welcome1">
-      <h1>Mindful Hawks</h1></div>
+      <h1>Mindful Hawks</h1>
+    </div>
     <div className = "upperright"></div>
 
 
