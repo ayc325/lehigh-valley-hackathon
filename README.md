@@ -40,7 +40,7 @@ This web app consists of 4 main components: ChatBot, Mood Tracker, Quick Tips, a
 5. Testing - Postman
 6. Deployment - Vercel
 
-### Challenges we faces
+### Challenges we faced
 
 * Github merged conflicts between branches - resolved by teaching all members how to use Github properly
 * AWS Lambda handler issue Internal Server error 500 or Bad Gateway error 502 - needed to use proper request and response JSON formatting or wrong arn modelId
