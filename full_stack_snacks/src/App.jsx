@@ -5,62 +5,75 @@ import ChatBot from './components/ChatBot'
 import MoodTracker from './components/MoodTracker'
 import QuickTips from './components/QuickTips'
 import Resources from './components/Resources'
+import Calendar1 from './components/Calendar1'
 import './App.css'
+
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    // <div>
-    //   <ChatBot />
-    //   <MoodTracker />
-    //   <QuickTips />
-    //   <Resources />
-    // </div>
   <div className = "grid-container">
     <div className = "upperleft"></div>
     <div className = "Welcome1">
-      <h1>Mindful Hawks</h1>
+      <h1>Mindful Hawks</h1></div>
     <div className = "upperright"></div>
 
 
     { <div className = "nav1">
         <nav>
-      <ul className = "navBar">
-        <li><a href = "#">ChatBot</a></li>
-        <li><a href = "#">MoodTracker</a></li>
-        <li><a href = "#">QuickTips</a></li>
-        <li><a href = "#">Resources</a></li>
-      </ul>
-    </nav>
+          <a href = "#">ChatBot</a>
+          <a href = "#">MoodTracker</a>
+          <a href = "#">QuickTips</a>
+          <a href = "#">Resources</a>
+        </nav>
 
     </div> }
 
 
 
-    <div className = "playlist1">
-      <h2>Playlist goes here</h2>
-    </div>
+  {<div className="playlist1">
+    <iframe
+      style={{ borderRadius: '12px' }} 
+      src="https://open.spotify.com/embed/playlist/6dQz1ZnwnluFiUhBOMrJQC?utm_source=generator" 
+      width="100%" 
+      height="370" 
+      frameBorder="0" 
+      allowFullScreen 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>}
 
-    <div className = "funfact1">
-      <h2>fun fact goes here</h2>
-    </div>
 
-    <div className = "body1">
+    
+
+    {<div className = "funfact1">
+      <p>Did you know...?</p>
+    </div>}
+
+    {<div className = "revealedFact">
+    <p>Lehigh is the 2nd most studious college in the US!</p>
+    </div>}
+
+    {<div className = "body1">
       <p>body goes here</p>
-    </div>
+    </div>}
 
-    <div className = "moodInsights">
-      <p>mood insights goes here</p>
-    </div>
+    {<div className = "moodInsights">
+      <Calendar1 />
+    </div>}
 
-    <div className = "footer1">
+   {<div className = "footer1">
       <p>footer goes here</p>
-    </div>
+    </div>}
+
+    
   </div>
 
-   </div>
   )
+
 }
+
 
 export default App

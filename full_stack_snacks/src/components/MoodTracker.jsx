@@ -67,6 +67,44 @@ const MoodTracker = () =>{
         setMood(selectedMood);
         setRandomPhrase(getRandomPhrase(selectedMood))
     };
+
+    const incrementEmotion = (emotion) => {
+        switch (emotion) {
+          case 'Happy':
+            setHappyCount(happyC + 1);
+            break;
+          case 'Sad':
+            setSadCount(sadC + 1);
+            break;
+          case 'Angry':
+            setNeutralCount(angryC + 1);
+            break;
+          case 'Calm':
+            setNeutralCount(calmC + 1);
+            break;
+          case 'Motivated':
+            setNeutralCount(motivatedC + 1);
+            break;
+          case 'Anxious':
+            setNeutralCount(anxiousC + 1);
+            break;
+          case 'Sick':
+            setNeutralCount(sickC + 1);
+            break;
+          case 'Confident':
+            setNeutralCount(confidentC + 1);
+            break;
+          case 'Stressed':
+            setNeutralCount(stressedC + 1);
+            break;
+          case 'Energetic':
+            setNeutralCount(energeticC + 1);
+            break;
+          default:
+            break;
+        }
+      };
+    
      
     useEffect(() => {
     document.body.classList.remove('sad-theme', 'happy-theme', 'stressed-theme', 'anxious-theme');
@@ -79,16 +117,17 @@ const MoodTracker = () =>{
     return(
         <div className = "mood">
             <h2>How Are you Feeling today?</h2>
-            <div className="mood-options">
-                <button onClick={() => handleMoodChange('Happy')}>😊 Happy</button>
-                <button onClick={() => handleMoodChange('Sad')}>😔 Sad</button>
-                <button onClick={() => handleMoodChange('Angry')}> 😡 Angry </button>
-                <button onClick={() => handleMoodChange('Calm')}>🙂‍↕️ Calm</button>
-                <button onClick={() => handleMoodChange('Motivated')}> 💪Motivated </button>
-                <button onClick={() => handleMoodChange('Anxious')}> 😰 Anxious </button>
-                <button onClick={() => handleMoodChange('Sick')}> 🤒 Sick </button>
-                <button onClick={() => handleMoodChange('Stressed')}>😣 Stressed</button>
-                <button onClick={() => handleMoodChange('Energetic')}>😁Energetic</button>
+            <div className= "mood-options">
+                <button button className="mood-button" onClick={() => handleMoodChange('Happy')}>😊 Happy</button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Sad')}>😔 Sad</button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Angry')}> 😡 Angry </button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Calm')}>🙂‍↕️ Calm</button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Motivated')}> 💪Motivated </button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Anxious')}> 😰 Stressed </button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Sick')}> 😳 Embarassed </button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Confident')}> 😎 Confident </button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Stressed')}>😣 Sick</button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Energetic')}>😁Energetic</button>
             </div>
             {mood && <p className = "mood-message">{message}</p>}
             {mood && <p className="random-phrase">{randomPhrase}</p>}
