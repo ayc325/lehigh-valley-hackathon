@@ -52,9 +52,7 @@ const QuickTips = () =>{
                 : Notion is a versitile tool for note-taking, assignment tracking, and journaling. 
                 Notion is useful for both academic and personal use, with customizable templates to fit your needs.
                 <br />
-                <a href = "https://www.bing.com/ck/a?!&&p=be649260b6a656b6b6897cdeaee324a8fe2e4d38c61f7b914f670bde5a963cacJmltdHM9MTcyOTI5NjAwMA&ptn=3&ver=2&hsh=4&fclid=0942a05a-4f87-6ce9-04ec-b0c44e376d62&psq=notion+dowload&u=a1aHR0cHM6Ly93d3cubm90aW9uLnNvLw&ntb=1">
-                    <img src = {notionpic}></img>
-                </a>
+                <a href = "https://www.bing.com/ck/a?!&&p=be649260b6a656b6b6897cdeaee324a8fe2e4d38c61f7b914f670bde5a963cacJmltdHM9MTcyOTI5NjAwMA&ptn=3&ver=2&hsh=4&fclid=0942a05a-4f87-6ce9-04ec-b0c44e376d62&psq=notion+dowload&u=a1aHR0cHM6Ly93d3cubm90aW9uLnNvLw&ntb=1">Download Notion</a>
             </p>
             <p>
                 <b>Pomodoro Timer</b>
