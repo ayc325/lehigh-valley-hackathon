@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './ChatBot.css'; // Import the CSS file for styling
 
 const ChatBot = () => {
     const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const [loading, setLoading] = useState(false);
+    const chatWindowRef = useRef(null); // Create a ref for the chat window
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -56,10 +57,17 @@ const ChatBot = () => {
         }
     };
 
+    // Scroll to the bottom whenever messages change
+    useEffect(() => {
+        if (chatWindowRef.current) {
+            chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight;
+        }
+    }, [messages]); // Run this effect whenever messages change
+
     return (
         <div className="chatbot-container">
             <h1>ChatBot</h1>
-            <div className="chat-window">
+            <div className="chat-window" ref={chatWindowRef}>
                 {messages.map((message, index) => (
                     <div key={index} className={`chat-bubble ${message.role}`}>
                         <strong>{message.role === 'user' ? 'You' : 'Assistant'}:</strong> {message.content}
