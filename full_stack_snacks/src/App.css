@@ -5,6 +5,7 @@
   text-align: center;
   align-items: center;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
   }
  
  
@@ -22,9 +23,9 @@
                       'fact body body body body moodCal'
                       'fact body body body body moodCal'
                       'footer footer footer footer footer footer';
-
   grid-gap: 20px;
   padding: 20px;
+ 
  
  }
  
@@ -36,13 +37,12 @@
   border-radius: 25px;
   margin: 30px;
   text-align: center;
-  padding: 20 px;
+  padding: 20px;
   background-color: #faebeb; 
   top:0;
   align-items:center;
   width: fit-content;
  }
-
 
  
  
@@ -63,7 +63,6 @@
   padding-right: 10%;
   border-radius: 20px;
   margin: 20px;
-
   display: flex;
   justify-content: space-between; 
   padding-top: 20px;
@@ -75,8 +74,6 @@
   color: rgb(115, 81, 49);
   font-weight:bold;
   font-size:16px;
-  gap: 25px; 
-
  }
  
  
@@ -85,36 +82,37 @@
  }
  
  
- .funfact1 {
-  grid-area: fact;
-  background-color: #C2E1D4;
-  border-radius: 25px;
-  padding: 20px;
-  transition: opacity 0.3s ease;
-}
+       .funfact1 {
+            background-color: #C2E1D4;
+            border-radius: 25px;
+            padding: 20px;
+            transition: opacity 0.3s ease;
+            position: relative; /* Allow positioning of hidden text */
+            z-index: 1; /* Ensure it's above the revealed text */
+        }
 
-.revealedFact {
-  grid-area: fact;
-  opacity: 0; /* Hidden by default */
-  transition: opacity 0.3s ease;
-  position: absolute; /* Position it over funfact1 */
-  top: 0; /* Align with funfact1 */
-  left: 0; /* Align with funfact1 */
-  width: 100%; /* Full width of funfact1 */
-  padding: 20px; /* Same padding for alignment */
-  background-color: #C2E1D4; /* Match background */
-  border-radius: 25px; /* Match border radius */
-}
+        .revealedFact {
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease;
+            position: absolute; /* Position it over funfact1 */
+            top: 0; /* Align with funfact1 */
+            left: 0; /* Align with funfact1 */
+            width: 100%; /* Full width of funfact1 */
+            padding: 20px; /* Same padding for alignment */
+            background-color: #C2E1D4; /* Match background */
+            border-radius: 25px; /* Match border radius */
+            z-index: 0; /* Behind funfact1 */
+        }
 
-.funfact1:hover {
-  opacity: 0; /* Fade out funfact1 on hover */
-}
+        .funfact1:hover {
+            opacity: 0; /* Fade out funfact1 on hover */
+        }
 
-.funfact1:hover + .revealedFact {
-  opacity: 1; /* Fade in revealedFact on hover */
-  color: black; 
+        .funfact1:hover + .revealedFact {
+            opacity: 1; /* Fade in revealedFact on hover */
+        }
+ 
 
-}
  
  
  .body1{
