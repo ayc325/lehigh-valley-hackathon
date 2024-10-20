@@ -5,7 +5,6 @@ import MoodTracker from './components/MoodTracker';
 import QuickTips from './components/QuickTips';
 import Resources from './components/Resources';
 import Calendar1 from './components/Calendar1';
-import MoodInsight from './components/MoodInsight'
 export const Routes = () => {
     return (
         <Router>
@@ -27,9 +26,6 @@ export const Routes = () => {
                 </Route>
                 <Route path = "/calendar">
                     <Calendar1/>
-                </Route>
-                <Route path = "/moodinsight">
-                    <MoodInsight/>
                 </Route>
             </Switch>
         </Router>

@@ -4,7 +4,6 @@ import MoodTracker from './components/MoodTracker';
 import QuickTips from './components/QuickTips';
 import Resources from './components/Resources';
 import Calendar1 from './components/Calendar1';
-import MoodInsight from './components/MoodInsight';
 import './App.css';
 
 function App() {
@@ -12,15 +11,15 @@ function App() {
     <Router>
       <div className="grid-container">
         <div className="Welcome1">
-          <h1>Mindful Hawks</h1>
+        <Link to="/"><h1>Mindful Hawks</h1></Link>
         </div>
 
         <div className="nav1">
+          <Link to="/">Home</Link>
           <Link to="/chatbot">Chat Bot</Link>
           <Link to="/moodtracker">Mood Tracker</Link>
           <Link to="/quicktips">Quick Tips</Link>
           <Link to="/resources">Resources</Link>
-          <Link to="/">Home</Link>
         </div>
 
         <main className="body2">
@@ -30,7 +29,6 @@ function App() {
             <Route path="/moodtracker" element={<MoodTracker />} />
             <Route path="/quicktips" element={<QuickTips />} />
             <Route path="/resources" element={<Resources />} />
-            <Route path="/moodinsight" element={<MoodInsight />} />
             <Route path="*" element={<h2>404 - Page Not Found</h2>} />
           </Routes>
         </main>
@@ -59,17 +57,15 @@ function Home() {
           loading="lazy">
         </iframe>
       </div>
-      <div className="fact">
+      
         <div className="funfact1">
           <p>Did you know...?</p>
-        </div>
-        <div className="revealedFact">
           <p>Lehigh is the 2nd most studious college in the US!</p>
         </div>
-      </div>
-      <div className="moodInsights">
-        <Calendar1 />
-      </div>
+        <div className = "calendar">
+          <Calendar1 /> 
+        </div>
+         
     </div>
   );
 }
