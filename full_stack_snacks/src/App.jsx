@@ -35,6 +35,7 @@ function App() {
 
         <div className="footer1">
           <p>(c) 2024 Full Stack Snacks</p>
+          <a href = "https://github.com/ayc325/lehigh-valley-hackathon">Github Repo</a>
         </div>
       </div>
     </Router>
