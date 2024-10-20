@@ -1,9 +1,9 @@
 #root {
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0;
   padding: 2rem;
   text-align: center;
-  color:rgb(168, 123, 72);
+  align-items: center;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   }
  
@@ -22,25 +22,28 @@
                       'fact body body body body moodCal'
                       'fact body body body body moodCal'
                       'footer footer footer footer footer footer';
-  grid-gap: 10px;
-  color: rgb(165, 106, 42);
-  padding: 10px;
- 
+
+  grid-gap: 20px;
+  padding: 20px;
  
  }
  
  
  .Welcome1 {
   grid-area: Welcome;
-  border: solid black;
+  color: rgb(121, 91, 59);
+  border: solid rgb(121, 91, 59);
   border-radius: 25px;
   margin: 30px;
   text-align: center;
-  padding: 0px;
+  padding: 20 px;
   background-color: #faebeb; 
   top:0;
   align-items:center;
+  width: fit-content;
  }
+
+
  
  
  .upperleft{
@@ -55,63 +58,76 @@
  
  .nav1{
   grid-area: nav;
-  box-sizing:border-box;
-  width:100%;
   background-color:#DED0C2;
   padding-left: 10%;
   padding-right: 10%;
   border-radius: 20px;
   margin: 20px;
- }
- 
- 
- .navBar{
-  color:rgb(239, 238, 238);
-  /*text-decoration:none;*/
+
   display: flex;
-  justify-content: space-between;
-  align-items:center;
+  justify-content: space-between; 
   padding-top: 20px;
   padding-bottom: 20px;
  }
  
  
- .navBar a{
+ .nav1 a{
   color: rgb(115, 81, 49);
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   font-weight:bold;
   font-size:16px;
+  gap: 25px; 
+
  }
  
  
  .playlist1{
   grid-area: playlist;
-  background-color: #C2E1D4;
-  border-radius: 25px;
-  padding-top: 40px;
-  padding-bottom: 30px;
  }
  
  
- .funfact1{
+ .funfact1 {
   grid-area: fact;
   background-color: #C2E1D4;
   border-radius: 25px;
-  padding-top: 20px;
-  padding-bottom: 20px;
- }
+  padding: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.revealedFact {
+  grid-area: fact;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+  position: absolute; /* Position it over funfact1 */
+  top: 0; /* Align with funfact1 */
+  left: 0; /* Align with funfact1 */
+  width: 100%; /* Full width of funfact1 */
+  padding: 20px; /* Same padding for alignment */
+  background-color: #C2E1D4; /* Match background */
+  border-radius: 25px; /* Match border radius */
+}
+
+.funfact1:hover {
+  opacity: 0; /* Fade out funfact1 on hover */
+}
+
+.funfact1:hover + .revealedFact {
+  opacity: 1; /* Fade in revealedFact on hover */
+  color: black; 
+
+}
  
  
  .body1{
   grid-area: body;
   background-color: #E2EDF4;
   border-radius: 25px;
+  color: black; 
  }
  
  
  .moodInsights{
   grid-area: moodCal;
-  background-color: #F7CC97;
+  background-color: #F7CC97; 
   border-radius:25px;
  }
  
@@ -119,4 +135,5 @@
  .footer1{
   grid-area: footer;
   border: solid black;
- } 
+ }
+ 
