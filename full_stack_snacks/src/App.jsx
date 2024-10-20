@@ -21,48 +21,48 @@ function App() {
 
     { <div className = "nav1">
         <nav>
-        <a href = "#">ChatBot</a>
-        <a href = "#">MoodTracker</a>
-        <a href = "#">QuickTips</a>
-        <a href = "#">Resources</a>
-    </nav>
+          <a href = "#">ChatBot</a>
+          <a href = "#">MoodTracker</a>
+          <a href = "#">QuickTips</a>
+          <a href = "#">Resources</a>
+        </nav>
 
     </div> }
 
 
 
-    <div className="playlist1">
-  <h2>Relax with some music</h2>
-  <iframe
-    style={{ borderRadius: '12px' }} 
-    src="https://open.spotify.com/embed/playlist/6dQz1ZnwnluFiUhBOMrJQC?utm_source=generator" 
-    width="100%" 
-    height="352" 
-    frameBorder="0" 
-    allowFullScreen 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    loading="lazy">
-  </iframe>
-</div>
+  {<div className="playlist1">
+    <p>Relax with some music</p>
+    <iframe
+      style={{ borderRadius: '12px' }} 
+      src="https://open.spotify.com/embed/playlist/6dQz1ZnwnluFiUhBOMrJQC?utm_source=generator" 
+      width="100%" 
+      height="370" 
+      frameBorder="0" 
+      allowFullScreen 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>}
 
 
     
 
-    <div className = "funfact1">
-      <h2>fun fact goes here</h2>
-    </div>
+    {<div className = "funfact1">
+      <p>Did you know...?</p>
+    </div>}
 
-    <div className = "body1">
+    {<div className = "body1">
       <p>body goes here</p>
-    </div>
+    </div>}
 
-    <div className = "moodInsights">
+    {<div className = "moodInsights">
       <Calendar1 />
-    </div>
+    </div>}
 
-    <div className = "footer1">
+   {<div className = "footer1">
       <p>footer goes here</p>
-    </div>
+    </div>}
 
     
   </div>
