@@ -9,7 +9,7 @@
 
 ## Project Link
 
-* [Mindful Hawks](https://lehigh-valley-hackathon.vercel.app/)
+* [Mindful Hawks](https://mindful-hawks.vercel.app/)
 
 ## Demo
 
