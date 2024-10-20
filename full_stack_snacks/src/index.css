@@ -1,68 +1,130 @@
-:root {
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  align-items: center;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
-  margin: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+    'Welcome Welcome Welcome Welcome Welcome Welcome'
+    'nav nav nav nav nav nav'
+    'playlist body body body body moodCal'
+    'playlist body body body body moodCal'
+    'fact body body body body moodCal'
+    'fact body body body body moodCal'
+    'footer footer footer footer footer footer';
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.Welcome1 {
+  grid-area: Welcome;
+  color: rgb(121, 91, 59);
+  box-shadow: 0 4px 6px rgba(230, 77, 77, 0.6);
+  border-radius: 25px;
+  margin: 10px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #faebeb;
+}
+
+.nav1 {
+  grid-area: nav;
+  background-color: #DED0C2;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 20px;
+  margin: 20px;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.nav1 a {
+  color: rgb(115, 81, 49);
+  font-weight: bold;
+  font-size: 16px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.nav1 a:hover {
+  text-decoration: underline;
+  color: #4A3A2E; /* Slightly darker color on hover */
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.playlist1 {
+  grid-area: playlist;
+  background-color: #027325;
+  box-shadow: 0 4px 6px #027325;
+  border-radius: 20px;
+}
+
+.fact {
+  grid-area: fact;
+  position: relative; /* Ensure it's a positioning context for absolute children */
+}
+
+.funfact1, .revealedFact {
+  width: 85%; /* Match width */
+  height: 60px; /* Set a fixed height */
+  padding: 20px; /* Maintain consistent padding */
+  border-radius: 25px;
+}
+
+
+.funfact1 {
+  background-color: #C2E1D4;
+  border-radius: 25px;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+  z-index: 1; /* Ensure it's above the revealed text */
+}
+
+.revealedFact {
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s ease;
+  position: absolute; /* Position it over funfact1 */
+  top: 0; /* Align with funfact1 */
+  left: 0; /* Align with funfact1 */
+  padding: 20px; /* Same padding for alignment */
+  background-color: #C2E1D4; /* Match background */
+  border-radius: 25px; /* Match border radius */
+  z-index: 0; /* Behind funfact1 */
+}
+
+.funfact1:hover {
+  opacity: 0; /* Fade out funfact1 on hover */
+}
+
+.funfact1:hover + .revealedFact {
+  opacity: 1; /* Fade in revealedFact on hover */
+}
+
+.body1 {
+  grid-area: body;
+  background-color: #E2EDF4;
+  border-radius: 25px;
+  color: rgb(21, 2, 8);
+  width: 600px;
+}
+
+.moodInsights {
+  grid-area: moodCal;
+  background-color: #F7CC97;
+  border-radius: 25px;
+}
+
+.footer1 {
+  grid-area: footer;
+  border: solid black;
+  padding: 10px; /* Added padding for better appearance */
 }

@@ -14,7 +14,7 @@ function App() {
         <div className="Welcome1">
           <h1>Mindful Hawks</h1>
         </div>
-        
+
         <div className="nav1">
           <Link to="/chatbot">Chat Bot</Link>
           <Link to="/moodtracker">Mood Tracker</Link>
@@ -22,14 +22,16 @@ function App() {
           <Link to="/resources">Resources</Link>
         </div>
 
-        <Routes>
-          <Route path="/chatbot" element={<ChatBot />} />
-          <Route path="/moodtracker" element={<MoodTracker />} />
-          <Route path="/quicktips" element={<QuickTips />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/" element={<h2>Welcome! Please select a section.</h2>} />
-          <Route path="*" element={<h2>404 - Page Not Found</h2>} />
-        </Routes>
+        <main className = "body1">
+          <Routes>
+            <Route path="/chatbot" element={<ChatBot />} />
+            <Route path="/moodtracker" element={<MoodTracker />} />
+            <Route path="/quicktips" element={<QuickTips />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/" element={<h2>Welcome! Please select a section.</h2>} />
+            <Route path="*" element={<h2>404 - Page Not Found</h2>} />
+          </Routes>
+        </main>
 
 
         <div className="playlist1">
@@ -44,18 +46,22 @@ function App() {
             loading="lazy">
           </iframe>
         </div>
-
-        <div className="funfact1">
-          <p>Did you know...?</p>
+        
+        <div className="fact">
+          <div className="funfact1">
+            <p>Did you know...?</p>
+          </div>
+          <div className="revealedFact">
+            <p>Lehigh is the 2nd most studious college in the US!</p>
+          </div>
         </div>
 
-        <div className="revealedFact">
-          <p>Lehigh is the 2nd most studious college in the US!</p>
-        </div>
 
-        <div className="body1">
+        
+
+        {/* <div className="body1">
           <p>body goes here</p>
-        </div>
+        </div> */}
 
         <div className="moodInsights">
           <Calendar1 />
