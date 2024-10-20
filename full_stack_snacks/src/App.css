@@ -82,29 +82,37 @@
   grid-area: playlist;
  }
  
- .revealedFact {
-  grid-area: fact; 
-  opacity: 0; 
-  transition: opacity 0.3s ease; /* Ensure transition on opacity */
-}
-
-.funfact1 {
+ 
+ .funfact1 {
   grid-area: fact;
   background-color: #C2E1D4;
   border-radius: 25px;
-  padding-top: 20px;
-  padding-bottom: 20px; 
+  padding: 20px;
   transition: opacity 0.3s ease;
 }
 
+.revealedFact {
+  grid-area: fact;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+  position: absolute; /* Position it over funfact1 */
+  top: 0; /* Align with funfact1 */
+  left: 0; /* Align with funfact1 */
+  width: 100%; /* Full width of funfact1 */
+  padding: 20px; /* Same padding for alignment */
+  background-color: #C2E1D4; /* Match background */
+  border-radius: 25px; /* Match border radius */
+}
+
 .funfact1:hover {
-  opacity: 0; /* Fade out funfact1 */
+  opacity: 0; /* Fade out funfact1 on hover */
 }
 
 .funfact1:hover + .revealedFact {
-  opacity: 1; /* Fade in revealedFact */
-}
+  opacity: 1; /* Fade in revealedFact on hover */
+  color: black; 
 
+}
  
 
  
