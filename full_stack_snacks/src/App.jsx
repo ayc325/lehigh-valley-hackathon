@@ -21,15 +21,13 @@ function App() {
     <div className = "upperright"></div>
 
 
-    { <div className = "nav1">
-        <nav>
-          <a href = "#">ChatBot</a>
-          <a href = "#">MoodTracker</a>
-          <a href = "#">QuickTips</a>
-          <a href = "#">Resources</a>
-        </nav>
 
-    </div> }
+<div class="nav1">
+  <a class="#ChatBox" href="#home">ChatBox</a>
+  <a href="#MoodTracker">MoodTracker</a>
+  <a href="#QuickTips">QuickTips</a>
+  <a href="#Resources">Resources</a>
+</div>
 
 
 
