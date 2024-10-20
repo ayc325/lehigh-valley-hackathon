@@ -5,6 +5,8 @@ import MoodTracker from './components/MoodTracker';
 import QuickTips from './components/QuickTips';
 import Resources from './components/Resources';
 import Calendar1 from './components/Calendar1';
+import MoodInsight from './components/Calendar1';
+
 export const Routes = () => {
     return (
         <Router>
