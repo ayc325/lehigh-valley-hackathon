@@ -5,32 +5,34 @@
     justify-content: center;
     height: 100vh;
     background-color: #ffffff;
-  }
-  
-  h2 {
-    color: #ffffff;
-  }
-  .mood-options {
+}
+
+h2 {
+    color: #503b1f;
+}
+
+.mood-options {
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-between; 
     gap: 15px;
     margin-top: 20px;
-  }
-  
-  button.mood-button {
+}
+
+.mood-button {
     padding: 12px 24px;
     font-size: 16px;
     border-radius: 20px;
     border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-    background-color: #803939;
+    box-shadow: 0 4px 6px rgba(225, 142, 142, 0.6);
+    background-color: rgb(109, 82, 53); 
+    color: white; 
     transition: 1s;
 }
-  
-  button:hover {
-    background-color: #c50ae2;
-    transition: transform 0.2s;
+
+.mood-button:hover {
+    background-color: #fcc7c7;
+    transition: transform 1s;
     transform: translateY(-5px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.9); /* Makes button pop on hover */
-  }
+}
