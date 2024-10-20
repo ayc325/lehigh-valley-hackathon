@@ -8,61 +8,63 @@ import Resources from './components/Resources'
 import Calendar1 from './components/Calendar1'
 import './App.css'
 
+
 function App() {
-  // const [count, setCount] = useState(0)
-
-  return (
-    // <div>
-    //   <ChatBot />
-    //   <MoodTracker />
-    //   <QuickTips />
-    //   <Resources />
-    // </div>
-  <div className = "grid-container">
-    <div className = "upperleft"></div>
-    <div className = "Welcome1">
-      <h1>Mindful Hawks</h1>
-    <div className = "upperright"></div>
+ // const [count, setCount] = useState(0)
 
 
-    { <div className = "nav1">
-        <nav>
-      <ul className = "navBar">
-        <li><a href = "#">ChatBot</a></li>
-        <li><a href = "#">MoodTracker</a></li>
-        <li><a href = "#">QuickTips</a></li>
-        <li><a href = "#">Resources</a></li>
-      </ul>
-    </nav>
-
-    </div> }
+ return (
+ <div className = "grid-container">
+   <div className = "upperleft"></div>
+   <div className = "Welcome1">
+     <h1>Mindful Hawks</h1>
+   <div className = "upperright"></div>
 
 
 
-    <div className = "playlist1">
-      <h2>Playlist goes here</h2>
-    </div>
 
-    <div className = "funfact1">
-      <h2>fun fact goes here</h2>
-    </div>
+   { <div className = "nav1">
+       <nav>
+     <div className = "navBar">
+       <a href = "#">ChatBot</a>
+       <a href = "#">MoodTracker</a>
+       <a href = "#">QuickTips</a>
+       <a href = "#">Resources</a>
+     </div>
+   </nav>
 
-    <div className = "body1">
-      <p>body goes here</p>
-    </div>
+   </div> }
 
-    <div className = "moodInsights">
-      <Calendar1 />
-      <p>mood insights goes here</p>
-    </div>
-
-    <div className = "footer1">
-      <p>footer goes here</p>
-    </div>
-  </div>
-
+   <div className = "playlist1">
+     <h2>Playlist goes here</h2>
    </div>
-  )
+
+
+   <div className = "funfact1">
+     <h2>fun fact goes here</h2>
+   </div>
+
+
+   <div className = "body1">
+     <p>body goes here</p>
+   </div>
+
+
+   <div className = "moodInsights">
+     <Calendar1 />
+     <p>mood insights goes here</p>
+   </div>
+
+
+   <div className = "footer1">
+     <p>footer goes here</p>
+   </div>
+ </div>
+
+
+  </div>
+ )
 }
+
 
 export default App
