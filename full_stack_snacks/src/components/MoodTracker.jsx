@@ -9,8 +9,10 @@ const MoodTracker = () =>{
     const [mood, setMood] = useState('');
     const [message, setMessage] = useState(''); 
     const [randomPhrase, setRandomPhrase] = useState('');
+    const [happyC, setHappyCount] = useState(0);
+    const [sadC, setSadCount] = useState(0);
     
-    const moodPhrases = {
+    const moodPhrases  = {
         Happy: [
           "That's awesome! Keep the positive energy going—consider heading to Taylor Gym to keep those good vibes flowing.",
           "Happiness looks great on you! If you're up for it, why not stop by the UC lawn for some outdoor relaxation?",
@@ -56,6 +58,16 @@ const MoodTracker = () =>{
           "Channel that energy into something awesome! Check out group fitness classes at Taylor Gym or the Fitness Center in Welch.",
           "You’re unstoppable right now! Go seize the day with some physical activities on the Asa Packer Campus or join an intramural sport.",
         ],
+        Confident: [
+          "It's a great day to be bold! Why not take that confident energy and present your ideas at the Baker Institute for Innovation?",
+          "Your confidence can inspire others. Take the stage and share your ideas, whether in a club or during your next presentation at Lehigh.",
+          "You're unstoppable today! Consider mentoring a peer or getting involved in Lehigh's leadership development programs at the Office of Student Engagement.",
+        ],
+        Embarrassed: [
+          "It’s totally okay to feel embarrassed—remember, everyone in your class has been there! Swing by the Linderman Library for some quiet time to regroup.",
+          "Don’t let a small moment get you down. Next time, try some mindfulness exercises at Taylor Gym to shake off the embarrassment.",
+          "You’re unstoppable right now! Go seize the day with some physical activities on the Asa Packer Campus or join an intramural sport.",
+        ],
       };
     
     const getRandomPhrase = (selectedMood) => {
@@ -63,10 +75,32 @@ const MoodTracker = () =>{
         return phrases[Math.floor(Math.random() * phrases.length)];
       };
 
-    const handleMoodChange = (selectedMood) => {
-        setMood(selectedMood);
-        setRandomPhrase(getRandomPhrase(selectedMood))
+      const handleMoodChange = (selectedMood) => {
+        setMood((prevMood) => {
+            if (prevMood === selectedMood) {
+                return '';  // Deselect if the same mood is clicked again
+            } else {
+                setRandomPhrase(getRandomPhrase(selectedMood));
+                setMessage(`You selected ${selectedMood}`);
+                return selectedMood;
+            }
+        });
     };
+
+    useEffect(() => {
+        // Remove all existing mood-related classes from body
+        document.body.classList.remove(
+            'sad-theme', 'happy-theme', 'angry-theme', 'stressed-theme',
+            'anxious-theme', 'motivated-theme', 'calm-theme', 'embarrassed-theme',
+            'confident-theme', 'energetic-theme', 'sick-theme'
+        );
+    
+        // Add the appropriate class based on the selected mood
+        if (mood) {
+            document.body.classList.add(`${mood.toLowerCase()}-theme`);
+        }
+    }, [mood]);
+    
 
     const incrementEmotion = (emotion) => {
         switch (emotion) {
@@ -77,65 +111,133 @@ const MoodTracker = () =>{
             setSadCount(sadC + 1);
             break;
           case 'Angry':
-            setNeutralCount(angryC + 1);
+            setAngryCount(angryC + 1);
             break;
           case 'Calm':
-            setNeutralCount(calmC + 1);
+            setCalmCount(calmC + 1);
             break;
           case 'Motivated':
-            setNeutralCount(motivatedC + 1);
+            setMotivatedCount(motivatedC + 1);
             break;
           case 'Anxious':
-            setNeutralCount(anxiousC + 1);
+            setAnxiousCount(anxiousC + 1);
             break;
           case 'Sick':
-            setNeutralCount(sickC + 1);
+            setSickCount(sickC + 1);
             break;
           case 'Confident':
-            setNeutralCount(confidentC + 1);
+            setConfidentCount(confidentC + 1);
             break;
           case 'Stressed':
-            setNeutralCount(stressedC + 1);
+            setStressedCount(stressedC + 1);
             break;
           case 'Energetic':
-            setNeutralCount(energeticC + 1);
+            setEnergeticCount(energeticC + 1);
             break;
           default:
             break;
         }
       };
+      const createBubble = () => {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        document.body.appendChild(bubble);
     
-     
+        // Set bubble position and animate
+        bubble.style.left = Math.random() * window.innerWidth + "px";
+        bubble.style.animationDuration = Math.random() * 3 + 2 + "s";
+    
+        // Remove bubble after animation completes
+        bubble.addEventListener("animationend", () => {
+            bubble.remove();
+        });
+    };
+    
+    // Create bubbles on mood change
     useEffect(() => {
-    document.body.classList.remove('sad-theme', 'happy-theme', 'stressed-theme', 'anxious-theme');
+        const bubbleInterval = setInterval(() => {
+            createBubble();
+        }, 1000); // Adjust for how often you want new bubbles
     
-    if (mood === 'Sad') document.body.classList.add('sad-theme');
-    if (mood === 'Happy') document.body.classList.add('happy-theme');
-    if (mood === 'Stressed') document.body.classList.add('stressed-theme');
-    if (mood === 'Anxious') document.body.classList.add('anxious-theme');   
+        return () => clearInterval(bubbleInterval);
     }, [mood]);
+    
+
+
+  
+    
     return(
-        <div className = "mood">
-            <h2>How Are you Feeling today?</h2>
-            <div className= "mood-options">
-                <button button className="mood-button" onClick={() => handleMoodChange('Happy')}>😊 Happy</button>
-                <button button className="mood-button" onClick={() => handleMoodChange('Sad')}>😔 Sad</button>
-                <button button className="mood-button" onClick={() => handleMoodChange('Angry')}> 😡 Angry </button>
-                <button button className="mood-button" onClick={() => handleMoodChange('Calm')}>🙂‍↕️ Calm</button>
-                <button button className="mood-button" onClick={() => handleMoodChange('Motivated')}> 💪Motivated </button>
-                <button button className="mood-button" onClick={() => handleMoodChange('Anxious')}> 😰 Stressed </button>
-                <button button className="mood-button" onClick={() => handleMoodChange('Sick')}> 😳 Embarassed </button>
-                <button button className="mood-button" onClick={() => handleMoodChange('Confident')}> 😎 Confident </button>
-                <button button className="mood-button" onClick={() => handleMoodChange('Stressed')}>😣 Sick</button>
-                <button button className="mood-button" onClick={() => handleMoodChange('Energetic')}>😁Energetic</button>
-            </div>
-            {mood && <p className = "mood-message">{message}</p>}
+            <div className="mood">
+                <h2>How Are you Feeling today?</h2>
+                <div className="mood-options">
+                    <button
+                        className={`mood-button ${mood === 'Happy' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Happy')}
+                    >
+                        😊 Happy
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Sad' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Sad')}
+                    >
+                        😔 Sad
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Calm' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Calm')}
+                    >
+                        🙂 Calm
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Angry' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Angry')}
+                    >
+                        😡 Angry
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Motivated' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Motivated')}
+                    >
+                        💪 Motivated
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Anxious' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Anxious')}
+                    >
+                        😰 Anxious
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Confident' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Confident')}
+                    >
+                        😎 Confident
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Embarrassed' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Embarrassed')}
+                    >
+                        😳 Embarrassed
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Energetic' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Energetic')}
+                    >
+                        😁 Energetic
+                    </button>
+                    <button
+                        className={`mood-button ${mood === 'Sick' ? 'selected' : ''}`}
+                        onClick={() => handleMoodChange('Sick')}
+                    >
+                        😣 Sick
+                    </button>
+                </div>
             {mood && <p className="random-phrase">{randomPhrase}</p>}
 
-            {mood === 'Sad' ||mood === 'Angry' || mood === 'Stressed' || mood === 'Anxious' ? (
+            {mood === 'Sad' ||mood === 'Angry' || mood === 'Stressed'|| mood === 'Sick' || mood === 'Anxious' ? (
                 <div> <p className="chatbot-prompt">
                 Try chatting with our <a href="#">ChatBot</a>.
             </p>
+            
             
             </div>
             ):null}
