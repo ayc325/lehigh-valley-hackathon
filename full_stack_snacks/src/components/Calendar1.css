@@ -67,6 +67,10 @@
     }
 
  .monthly-insight-button:hover {
-    background-color: #412e21
+    background-color: #594434;
+ }
+
+ h2 {
+    color: #594434;
  }
   /* rgb(246, 246, 232); background color */
