@@ -31,7 +31,7 @@ const Calendar1 = ({selectedDate, nav}) => {
 
     return (
         <div className="calendar-container">
-            <h2>Select a Date to Record Your Mood</h2>
+            <h2>Calendar</h2>
             <Calendar
                 onChange={onChange}
                 value={date}
