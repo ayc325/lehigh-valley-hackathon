@@ -56,9 +56,9 @@ This web app consists of 4 main components: ChatBot, Mood Tracker, Quick Tips, a
 | **Component Name** | **Description** |
 |----------------|-------------|
 |Chat Bot|Chat uses Bedrock and Lehigh Wellness related Knowledge Bases (from custom PDF) in S3 Buckets to curate ideal responses for students that need a quick mental chat with AI. The bot calls an API call that calls a Lambda function/handler that is written in Python.|
-|Mood Tracker|Mood Tracker Description|
-|Quick Tips|Quick Tips Description|
-|Resources|Resources Description|
+|Mood Tracker|The Mood Tracker allows users to log their daily emotions and mental state. It helps students identify emotional patterns and trends over time by visually tracking their mood in a user-friendly interface. The data is visualized in an interactive pie chart rendered using the Recharts library. JavaScript handles the mood logging and state management, while responsive styling is provided by CSS.|
+|Quick Tips & Resources |The Quick Tips feature provides immediate advice to students. This advice is aimed at relieving stress, improving focus, and managing anxiety through short, actionable tips. The Resources section offers students a curated collection of mental health tools, information, and contact points at Lehigh University. It gives students easy access to mental health services on campus.|
+|Calendar|The Calendar allows provides users a convenient way to navigate between different time periods and reflect on their mental health journey. It leverages React and the React-Calendar library to provide an intuitive date-picking interface. JavaScript handles the logic behind date selection.|
 
 ## Appendix
 
