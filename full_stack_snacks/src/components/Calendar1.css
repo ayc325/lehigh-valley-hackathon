@@ -1,0 +1,72 @@
+/*CSS for the calendar */
+.calendar-container {
+    width: 70%;
+    max-width: 800px;
+    /* Make the calendar take the full width */
+    padding: 20px;
+    background-color: #faebeb;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .react-calendar {
+    width: 100%;
+    max-width: 800px;
+    /* Max width for large calendar */
+    margin: 0 auto;
+    background-color: #DED0C2;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #594434;
+  }
+  
+  .react-calendar__tile {
+    background: #DED0C2;
+    border-radius: 5px;
+    color: #594434;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .react-calendar__tile:hover {
+    background: #555;
+    transform: scale(1.05);
+  }
+  
+  .react-calendar__tile--active {
+    background: #bba794;
+    color: #fff;
+  }
+  
+  .react-calendar__navigation button {
+    color: #594434;
+    background: #bba794;
+    border: none;
+    border-radius: 5px;
+    margin: 2px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .react-calendar__navigation button:hover {
+    background: #bba794;
+    transform: scale(1.1);
+  }
+
+
+  .monthly-insight-button {
+    background-color: #594434;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    }
+
+ .monthly-insight-button:hover {
+    background-color: #412e21
+ }
+  /* rgb(246, 246, 232); background color */
