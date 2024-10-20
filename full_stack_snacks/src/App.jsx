@@ -4,6 +4,7 @@ import MoodTracker from './components/MoodTracker';
 import QuickTips from './components/QuickTips';
 import Resources from './components/Resources';
 import Calendar1 from './components/Calendar1';
+import MoodInsight from './components/MoodInsight';
 import './App.css';
 
 function App() {
@@ -22,19 +23,20 @@ function App() {
           <Link to="/">Home</Link>
         </div>
 
-        <main className="body1">
+        <main className="body2">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/chatbot" element={<ChatBot />} />
             <Route path="/moodtracker" element={<MoodTracker />} />
             <Route path="/quicktips" element={<QuickTips />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/moodinsight" element={<MoodInsight />} />
             <Route path="*" element={<h2>404 - Page Not Found</h2>} />
           </Routes>
         </main>
 
         <div className="footer1">
-          <p>footer goes here</p>
+          <p>(c) 2024 Full Stack Snacks</p>
         </div>
       </div>
     </Router>

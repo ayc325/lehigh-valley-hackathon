@@ -54,16 +54,21 @@ body {
   color: #4A3A2E; /* Slightly darker color on hover */
 }
 
-.body1 {
+.body2 {
   grid-area: body;
   background-color: #E2EDF4;
   border-radius: 25px;
   color: rgb(21, 2, 8);
   padding: 20px;
+  align-content: center;
 }
 
 .footer1 {
   grid-area: footer;
   border: solid black;
   padding: 10px; /* Added padding for better appearance */
+}
+
+.playlist1{
+  padding: 10px;
 }
