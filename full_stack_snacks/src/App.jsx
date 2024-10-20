@@ -32,7 +32,6 @@ function App() {
 
 
   {<div className="playlist1">
-    <p>Relax with some music</p>
     <iframe
       style={{ borderRadius: '12px' }} 
       src="https://open.spotify.com/embed/playlist/6dQz1ZnwnluFiUhBOMrJQC?utm_source=generator" 
@@ -50,6 +49,10 @@ function App() {
 
     {<div className = "funfact1">
       <p>Did you know...?</p>
+    </div>}
+
+    {<div className = "revealedFact">
+    <p>Lehigh is the 2nd most studious college in the US!</p>
     </div>}
 
     {<div className = "body1">
