@@ -11,6 +11,11 @@
 
 * [Mindful Hawks](https://lehigh-valley-hackathon.vercel.app/)
 
+## Demo
+
+* [Google Drive Video w/ Audio](https://drive.google.com/file/d/1hV3VB2gj7uAfvF596UJCz0AktzYS6M_h/view?usp=drive_link)
+* ![Video Walkthrough with Giphy w/out Audio](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHdvdHg1ZHA5aDVsMmtlY24wbGZuZzg5MzQ1YXpzcjJqZW45a2V4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nSu780bmP3kfvZTxOz/giphy.gif)
+
 ## Project Overview
 
 This web app consists of 4 main components: ChatBot, Mood Tracker, Quick Tips, and Resources to assist Lehigh Students with their mental health on campus.
@@ -46,11 +51,6 @@ This web app consists of 4 main components: ChatBot, Mood Tracker, Quick Tips, a
 * AWS Lambda handler issue Internal Server error 500 or Bad Gateway error 502 - needed to use proper request and response JSON formatting or wrong arn modelId
 * Merging Component files together - resolved through carefully code reviewing and looking through console
 * Designing using CSS - learned how to use CSS Grids for more responsive website.
-
-## Demo
-
-* [Google Drive Video w/ Audio](https://drive.google.com/file/d/1hV3VB2gj7uAfvF596UJCz0AktzYS6M_h/view?usp=drive_link)
-* ![Video Walkthrough with Giphy w/out Audio](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHdvdHg1ZHA5aDVsMmtlY24wbGZuZzg5MzQ1YXpzcjJqZW45a2V4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nSu780bmP3kfvZTxOz/giphy.gif)
 
 ## Project Details by component
 
