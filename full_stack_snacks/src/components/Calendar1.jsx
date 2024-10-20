@@ -31,16 +31,13 @@ const Calendar1 = ({selectedDate, nav}) => {
 
     return (
         <div className="calendar-container">
-            <h2>Select a Date</h2>
+            <h2>Calendar</h2>
             <Calendar
                 onChange={onChange}
                 value={date}
                 onActiveStartDateChange={onActiveStartDateChange} // Listen to view changes
             />
             <br />
-            <button className="monthly-insight-button" onClick={handleMonthlyInsight}>
-                Mood Insights
-            </button>
         </div>
     )
 }

@@ -37,37 +37,57 @@
 }
 
 body {
-    transition: background-color 0.5s ease; /* Smooth transition for body background */
+    background-color: #ffffff; /* Default fallback color */
+    transition: background-color 0.5s ease-in-out; /* Smooth transition for background color */
 }
 
 body.happy-theme {
-    background: linear-gradient(135deg, #dfe792, #ffffff); /* Gradient for happy theme */
+    background-color: #fff9a8; /* A color from the gradient */
+    background: linear-gradient(135deg, #dfe792, #ffffff);
 }
+
 body.sad-theme {
+    background-color: #4a5573;
     background: linear-gradient(135deg, #324071, #b3b9c7);
 }
+
 body.angry-theme {
+    background-color: #ff7f6b;
     background: linear-gradient(135deg, #570c00, #ff8682);
 }
+
 body.calm-theme {
+    background-color: #9bf6ff;
     background: linear-gradient(135deg, #69a0ff, #1cffc2);
 }
+
 body.motivated-theme {
+    background-color: #cab6ee;
     background: linear-gradient(135deg, #cab6ee, #9377c8);
 }
+
 body.sick-theme {
+    background-color: #004201;
     background: linear-gradient(135deg, #64ac68, #004201);
 }
+
 body.anxious-theme {
+    background-color: #072222;
     background: linear-gradient(135deg, #072222, #9dd0cf);
 }
+
 body.energetic-theme {
+    background-color: #b4f7f8;
     background: linear-gradient(135deg, #b4f7f8, #37bcb8);
 }
+
 body.embarrassed-theme {
+    background-color: #000b43;
     background: linear-gradient(135deg, #000b43c9, #a3a5d8);
 }
+
 body.confident-theme {
+    background-color: #fbfac2;
     background: linear-gradient(135deg, #fbfac2, #fff81f);
 }
 
@@ -89,27 +109,29 @@ body.confident-theme {
     100% { transform: translateY(0px); }
   }
 
-  body.happy-theme {
-    background: url('happy-bg.svg') no-repeat center center fixed;
-  }
   .bubble {
+    width: 10px;
+    height: 10px;
+    background-color: white;
     position: absolute;
-    bottom: -50px;
-    width: 20px;
-    height: 20px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.8);
-    opacity: 0;
-    animation: rise 3s ease-in forwards;
-}
+    opacity: 0.7;
+    animation: rise 5s ease-in-out infinite;
+  }
+  
+  @keyframes rise {
+    from {
+      transform: translateY(0);
+      opacity: 0.7;
+    }
+    to {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+  }
 
-@keyframes rise {
-    0% {
-        bottom: -50px;
-        opacity: 0.8;
-    }
-    100% {
-        bottom: 100%;
-        opacity: 0;
-    }
+.pie-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

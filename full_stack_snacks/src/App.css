@@ -34,6 +34,12 @@ body {
   background-color: #faebeb;
 }
 
+.Welcome1 a {
+  color: rgb(115, 81, 49);
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .nav1 {
   grid-area: nav;
   background-color: #DED0C2;
@@ -54,16 +60,58 @@ body {
   color: #4A3A2E; /* Slightly darker color on hover */
 }
 
-.body1 {
+.body2 {
   grid-area: body;
   background-color: #E2EDF4;
   border-radius: 25px;
   color: rgb(21, 2, 8);
   padding: 20px;
+  align-content: center;
+}
+
+.fact {
+  grid-area: fact;
+  position: relative; /* Ensure it's a positioning context for absolute children */
+}
+
+
+.funfact1 {
+  background-color: #C2E1D4;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.calendar {
+  border-radius: 25px;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-left: 18%;
+  padding-right: 15%;
+  margin: 20px;
 }
 
 .footer1 {
   grid-area: footer;
   border: solid black;
   padding: 10px; /* Added padding for better appearance */
+  
+}
+
+.playlist1{
+  margin: 20px;
+
+}
+
+@media (max-width: 768px) {
+  .nav1 {
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the start */
+  }
+
+  .nav1 a {
+      margin: 10px 0; /* Add some space between links */
+      width: 100%; /* Optional: Make links full width */
+      text-align: center; /* Align text to the left */
+  }
 }

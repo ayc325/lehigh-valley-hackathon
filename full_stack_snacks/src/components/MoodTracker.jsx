@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import {useEffect } from "react";
 import './MoodTracker.css';
+import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
-
-const MoodTracker = () =>{
+const MoodTracker = () => {
     const [mood, setMood] = useState('');
-    const [message, setMessage] = useState(''); 
+    const [message, setMessage] = useState('');
     const [randomPhrase, setRandomPhrase] = useState('');
-    const [happyC, setHappyCount] = useState(0);
-    const [sadC, setSadCount] = useState(0);
+    
+    const [moodCounts, setMoodCounts] = useState({
+        Happy: 0,
+        Sad: 0,
+        Calm: 0,
+        Angry: 0,
+        Motivated: 0,
+        Anxious: 0,
+        Confident: 0,
+        Embarrassed: 0,
+        Energetic: 0,
+        Sick: 0,
+        Stressed: 0
+    });
+    const totalMoods = Object.values(moodCounts).reduce((acc, count) => acc + count, 0);
+    const COLORS = ['#e3b0ff', '#00C49F', '#FFBB28', '#FF8042', '#FF6347', '#40E0D0', '#DAA520', '#8A2BE2', '#FF1493', '#ADFF2F', '#DC143C'];
     
     const moodPhrases  = {
         Happy: [
@@ -69,22 +82,38 @@ const MoodTracker = () =>{
           "You’re unstoppable right now! Go seize the day with some physical activities on the Asa Packer Campus or join an intramural sport.",
         ],
       };
-    
+  
+
+    const data = Object.keys(moodCounts).map((mood, index) => ({
+        name: mood,
+        value: moodCounts[mood],
+        percentage: totalMoods > 0 ? ((moodCounts[mood] / totalMoods) * 100).toFixed(1) : 0,
+        fill: COLORS[index % COLORS.length],
+    }));
+
     const getRandomPhrase = (selectedMood) => {
         const phrases = moodPhrases[selectedMood] || [];
         return phrases[Math.floor(Math.random() * phrases.length)];
       };
 
-      const handleMoodChange = (selectedMood) => {
+    const handleMoodChange = (selectedMood) => {
         setMood((prevMood) => {
             if (prevMood === selectedMood) {
                 return '';  // Deselect if the same mood is clicked again
             } else {
                 setRandomPhrase(getRandomPhrase(selectedMood));
                 setMessage(`You selected ${selectedMood}`);
+                incrementMoodCount(selectedMood);  // Update mood count
                 return selectedMood;
             }
         });
+    };
+
+    const incrementMoodCount = (selectedMood) => {
+        setMoodCounts((prevCounts) => ({
+            ...prevCounts,
+            [selectedMood]: prevCounts[selectedMood] + 1
+        }));
     };
 
     useEffect(() => {
@@ -94,51 +123,14 @@ const MoodTracker = () =>{
             'anxious-theme', 'motivated-theme', 'calm-theme', 'embarrassed-theme',
             'confident-theme', 'energetic-theme', 'sick-theme'
         );
-    
+
         // Add the appropriate class based on the selected mood
         if (mood) {
             document.body.classList.add(`${mood.toLowerCase()}-theme`);
         }
     }, [mood]);
     
-
-    const incrementEmotion = (emotion) => {
-        switch (emotion) {
-          case 'Happy':
-            setHappyCount(happyC + 1);
-            break;
-          case 'Sad':
-            setSadCount(sadC + 1);
-            break;
-          case 'Angry':
-            setAngryCount(angryC + 1);
-            break;
-          case 'Calm':
-            setCalmCount(calmC + 1);
-            break;
-          case 'Motivated':
-            setMotivatedCount(motivatedC + 1);
-            break;
-          case 'Anxious':
-            setAnxiousCount(anxiousC + 1);
-            break;
-          case 'Sick':
-            setSickCount(sickC + 1);
-            break;
-          case 'Confident':
-            setConfidentCount(confidentC + 1);
-            break;
-          case 'Stressed':
-            setStressedCount(stressedC + 1);
-            break;
-          case 'Energetic':
-            setEnergeticCount(energeticC + 1);
-            break;
-          default:
-            break;
-        }
-      };
-      const createBubble = () => {
+    const createBubble = () => {
         const bubble = document.createElement("div");
         bubble.classList.add("bubble");
         document.body.appendChild(bubble);
@@ -161,11 +153,7 @@ const MoodTracker = () =>{
     
         return () => clearInterval(bubbleInterval);
     }, [mood]);
-    
 
-
-  
-    
     return(
             <div className="mood">
                 <h2>How Are you Feeling today?</h2>
@@ -238,11 +226,29 @@ const MoodTracker = () =>{
                 Try chatting with our <a href="#">ChatBot</a>.
             </p>
             
-            
             </div>
             ):null}
+            {/* Pie Chart for visualizing mood counts */}
+            <div className="pie-chart-container">
+                <div className="pie-chart-box">
+                    <PieChart width={400} height={400}>
+                        <Pie
+                            data={data}
+                            cx="50%" cy="50%" 
+                            outerRadius={150}
+                            fill="#8884d8"
+                            dataKey="value"
+                            isAnimationActive={true} // Ensure smooth transitions
+                        >
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={entry.fill} />
+                            ))}
+                        </Pie>
+                        <Tooltip formatter={(value, name, props) => [`${value} (${props.payload.percentage}%)`, name]} />
+                    </PieChart>
+                </div>
+            </div>
         </div>
-    
     );
 } //stuff
 
