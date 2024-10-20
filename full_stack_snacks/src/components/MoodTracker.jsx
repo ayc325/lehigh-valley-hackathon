@@ -79,16 +79,16 @@ const MoodTracker = () =>{
     return(
         <div className = "mood">
             <h2>How Are you Feeling today?</h2>
-            <div className="mood-options">
-                <button onClick={() => handleMoodChange('Happy')}>😊 Happy</button>
-                <button onClick={() => handleMoodChange('Sad')}>😔 Sad</button>
-                <button onClick={() => handleMoodChange('Angry')}> 😡 Angry </button>
-                <button onClick={() => handleMoodChange('Calm')}>🙂‍↕️ Calm</button>
-                <button onClick={() => handleMoodChange('Motivated')}> 💪Motivated </button>
-                <button onClick={() => handleMoodChange('Anxious')}> 😰 Anxious </button>
-                <button onClick={() => handleMoodChange('Sick')}> 🤒 Sick </button>
-                <button onClick={() => handleMoodChange('Stressed')}>😣 Stressed</button>
-                <button onClick={() => handleMoodChange('Energetic')}>😁Energetic</button>
+            <div className= "mood-options">
+                <button button className="mood-button" onClick={() => handleMoodChange('Happy')}>😊 Happy</button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Sad')}>😔 Sad</button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Angry')}> 😡 Angry </button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Calm')}>🙂‍↕️ Calm</button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Motivated')}> 💪Motivated </button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Anxious')}> 😰 Anxious </button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Sick')}> 🤒 Sick </button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Stressed')}>😣 Stressed</button>
+                <button button className="mood-button" onClick={() => handleMoodChange('Energetic')}>😁Energetic</button>
             </div>
             {mood && <p className = "mood-message">{message}</p>}
             {mood && <p className="random-phrase">{randomPhrase}</p>}

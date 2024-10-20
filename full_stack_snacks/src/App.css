@@ -5,7 +5,6 @@
   text-align: center;
   align-items: center;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-
   }
  
  
@@ -23,9 +22,9 @@
                       'fact body body body body moodCal'
                       'fact body body body body moodCal'
                       'footer footer footer footer footer footer';
+
   grid-gap: 20px;
   padding: 20px;
- 
  
  }
  
@@ -43,6 +42,7 @@
   align-items:center;
   width: fit-content;
  }
+
 
  
  
@@ -63,6 +63,7 @@
   padding-right: 10%;
   border-radius: 20px;
   margin: 20px;
+
   display: flex;
   justify-content: space-between; 
   padding-top: 20px;
@@ -75,6 +76,7 @@
   font-weight:bold;
   font-size:16px;
   gap: 25px; 
+
  }
  
  
@@ -112,8 +114,6 @@
         .funfact1:hover + .revealedFact {
             opacity: 1; /* Fade in revealedFact on hover */
         }
- 
-
  
  
  .body1{
